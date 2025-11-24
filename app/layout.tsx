@@ -15,7 +15,7 @@ const cormorant = Cormorant({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://house-of-order.pages.dev"),
+  metadataBase: new URL("https://house-of-order.com"),
   title: {
     default: "House of Order | Home Organizing & Styling in Miami",
     template: "%s | House of Order",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: "House of Order | Home Organizing & Styling",
     description:
       "Transform your space into an organized, serene environment. Curating Order. Creating Harmony.",
-    url: "https://house-of-order.pages.dev",
+    url: "https://house-of-order.com",
     siteName: "House of Order",
     locale: "en_US",
     type: "website",
