@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from "@/components/ui/input-otp";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Sparkles, Lock } from "lucide-react";
 
@@ -20,6 +23,20 @@ export function ComingSoonGate({ children }: { children: React.ReactNode }) {
     const stored = localStorage.getItem(STORAGE_KEY);
     setIsAuthenticated(stored === "true");
   }, []);
+
+  // Auto-submit when PIN is complete
+  useEffect(() => {
+    if (pin.length === 5) {
+      if (pin === CORRECT_PIN) {
+        localStorage.setItem(STORAGE_KEY, "true");
+        setIsAuthenticated(true);
+        setError("");
+      } else {
+        setError("Incorrect PIN. Please try again.");
+        setPin("");
+      }
+    }
+  }, [pin]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,22 +97,27 @@ export function ComingSoonGate({ children }: { children: React.ReactNode }) {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor="pin" className="text-teal flex items-center gap-2">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-4">
+                <div className="flex items-center justify-center gap-2 text-teal text-sm font-medium">
                   <Lock className="w-4 h-4" />
                   Access PIN
-                </Label>
-                <Input
-                  type="password"
-                  id="pin"
-                  value={pin}
-                  onChange={(e) => setPin(e.target.value)}
-                  placeholder="Enter PIN"
-                  className="rounded-xl bg-cream border-border text-teal h-12 text-center text-lg tracking-widest"
-                  maxLength={10}
-                  autoComplete="off"
-                />
+                </div>
+                <div className="flex justify-center">
+                  <InputOTP
+                    maxLength={5}
+                    value={pin}
+                    onChange={(value) => setPin(value)}
+                  >
+                    <InputOTPGroup>
+                      <InputOTPSlot index={0} className="w-12 h-14 text-xl bg-cream border-border text-teal" />
+                      <InputOTPSlot index={1} className="w-12 h-14 text-xl bg-cream border-border text-teal" />
+                      <InputOTPSlot index={2} className="w-12 h-14 text-xl bg-cream border-border text-teal" />
+                      <InputOTPSlot index={3} className="w-12 h-14 text-xl bg-cream border-border text-teal" />
+                      <InputOTPSlot index={4} className="w-12 h-14 text-xl bg-cream border-border text-teal" />
+                    </InputOTPGroup>
+                  </InputOTP>
+                </div>
               </div>
               {error && (
                 <p className="text-terracotta text-sm text-center">{error}</p>
