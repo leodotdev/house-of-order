@@ -34,6 +34,21 @@
   --border: #D4CCC0;
   --ring: #7A9A8B;
   --radius: 0.5rem;
+
+  /* Card Colors */
+  --card: #E8E2D9;
+  --card-foreground: #3D4F5F;
+
+  /* Popover Colors */
+  --popover: #F5F0EA;
+  --popover-foreground: #3D4F5F;
+
+  /* Destructive Colors */
+  --destructive: #dc2626;
+  --destructive-foreground: #F5F0EA;
+
+  /* Input Colors */
+  --input: #D4CCC0;
 }
 
 @theme inline {
@@ -59,6 +74,13 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-border: var(--border);
   --color-ring: var(--ring);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-input: var(--input);
   --font-sans: var(--font-outfit);
   --font-serif: var(--font-cormorant);
   --radius-sm: calc(var(--radius) - 4px);

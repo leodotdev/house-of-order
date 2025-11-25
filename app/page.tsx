@@ -10,10 +10,36 @@ import {
   Mail,
   MapPin,
   Instagram,
+  Video,
+  Building2,
 } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Separator } from "@/components/ui/separator";
+import { ComingSoonGate } from "@/components/coming-soon-gate";
 
 export default function HomePage() {
   return (
+    <ComingSoonGate>
     <div className="font-[family-name:var(--font-outfit)]">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-cream/90 backdrop-blur-sm border-b border-border">
@@ -41,12 +67,9 @@ export default function HomePage() {
             <a href="#process" className="text-teal hover:text-terracotta transition-colors">
               Process
             </a>
-            <a
-              href="#contact"
-              className="bg-teal text-cream px-5 py-2 rounded-full hover:bg-teal/90 transition-colors"
-            >
-              Get Started
-            </a>
+            <Button variant="default" size="sm" rounded="full" asChild>
+              <a href="#contact">Get Started</a>
+            </Button>
           </div>
         </div>
       </nav>
@@ -55,10 +78,10 @@ export default function HomePage() {
       <section className="min-h-screen flex items-center pt-20 pb-16 px-6">
         <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 bg-sage/20 text-sage-dark px-4 py-2 rounded-full text-sm">
+            <Badge variant="sage" className="px-4 py-2 text-sm">
               <Sparkles className="w-4 h-4" />
               <span>Home Organizing & Styling</span>
-            </div>
+            </Badge>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-[family-name:var(--font-cormorant)] font-semibold text-teal leading-[1.1] tracking-tight">
               Curating Order.
               <br />
@@ -69,19 +92,15 @@ export default function HomePage() {
               Fresh, functional, and timeless spaces designed for how you actually live.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center gap-2 bg-terracotta text-cream px-8 py-4 rounded-full hover:bg-terracotta/90 transition-colors text-lg font-medium"
-              >
-                Book a Consultation
-                <ArrowRight className="w-5 h-5" />
-              </a>
-              <a
-                href="#services"
-                className="inline-flex items-center justify-center gap-2 border-2 border-teal text-teal px-8 py-4 rounded-full hover:bg-teal hover:text-cream transition-colors text-lg font-medium"
-              >
-                View Services
-              </a>
+              <Button variant="accent" size="xl" rounded="full" asChild>
+                <a href="#contact">
+                  Book a Consultation
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </Button>
+              <Button variant="outline-primary" size="xl" rounded="full" asChild>
+                <a href="#services">View Services</a>
+              </Button>
             </div>
           </div>
           <div className="relative">
@@ -94,8 +113,8 @@ export default function HomePage() {
                 priority
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-cream p-6 rounded-2xl shadow-xl border border-border">
-              <div className="flex items-center gap-3">
+            <Card className="absolute -bottom-6 -left-6 border-border shadow-xl">
+              <CardContent className="flex items-center gap-3 p-4">
                 <div className="w-12 h-12 bg-sage/20 rounded-full flex items-center justify-center">
                   <CheckCircle2 className="w-6 h-6 text-sage" />
                 </div>
@@ -103,8 +122,8 @@ export default function HomePage() {
                   <p className="font-semibold text-teal">Tidy Spaces</p>
                   <p className="text-sm text-teal/60">Clear Minds</p>
                 </div>
-              </div>
-            </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -144,11 +163,10 @@ export default function HomePage() {
                 back into their homes — without the overwhelm.
               </p>
             </div>
-            <div className="pt-4">
-              <p className="text-2xl font-[family-name:var(--font-cormorant)] italic text-sage-dark">
-                "Fresh, functional, and timeless."
-              </p>
-            </div>
+            <Separator className="my-4" />
+            <p className="text-2xl font-[family-name:var(--font-cormorant)] italic text-sage-dark">
+              "Fresh, functional, and timeless."
+            </p>
           </div>
         </div>
       </section>
@@ -171,80 +189,100 @@ export default function HomePage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Service Card 1 */}
-            <div className="bg-cream-dark rounded-2xl p-8 hover:shadow-xl transition-shadow group">
-              <div className="w-14 h-14 bg-sage/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-sage/30 transition-colors">
-                <Home className="w-7 h-7 text-sage" />
-              </div>
-              <h3 className="text-xl font-semibold text-teal mb-3">Home Organizing</h3>
-              <p className="text-teal/70 mb-4">
-                Closets, kitchens, bedrooms, garages, offices — every space deserves intention and order.
-              </p>
-              <p className="text-terracotta font-medium">Starting at $90/hr</p>
-            </div>
+            <Card className="bg-cream-dark border-0 hover:shadow-xl transition-shadow group">
+              <CardHeader>
+                <div className="w-14 h-14 bg-sage/20 rounded-2xl flex items-center justify-center mb-2 group-hover:bg-sage/30 transition-colors">
+                  <Home className="w-7 h-7 text-sage" />
+                </div>
+                <CardTitle className="text-xl text-teal">Home Organizing</CardTitle>
+                <CardDescription className="text-teal/70">
+                  Closets, kitchens, bedrooms, garages, offices — every space deserves intention and order.
+                </CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <p className="text-terracotta font-medium">Starting at $90/hr</p>
+              </CardFooter>
+            </Card>
 
             {/* Service Card 2 */}
-            <div className="bg-cream-dark rounded-2xl p-8 hover:shadow-xl transition-shadow group">
-              <div className="w-14 h-14 bg-terracotta/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-terracotta/30 transition-colors">
-                <Sparkles className="w-7 h-7 text-terracotta" />
-              </div>
-              <h3 className="text-xl font-semibold text-teal mb-3">Full Space Overhaul</h3>
-              <p className="text-teal/70 mb-4">
-                Complete transformation of a single space — closet, pantry, playroom, or garage.
-              </p>
-              <p className="text-terracotta font-medium">$250 – $450 per space</p>
-            </div>
+            <Card className="bg-cream-dark border-0 hover:shadow-xl transition-shadow group">
+              <CardHeader>
+                <div className="w-14 h-14 bg-terracotta/20 rounded-2xl flex items-center justify-center mb-2 group-hover:bg-terracotta/30 transition-colors">
+                  <Sparkles className="w-7 h-7 text-terracotta" />
+                </div>
+                <CardTitle className="text-xl text-teal">Full Space Overhaul</CardTitle>
+                <CardDescription className="text-teal/70">
+                  Complete transformation of a single space — closet, pantry, playroom, or garage.
+                </CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <p className="text-terracotta font-medium">$250 – $450 per space</p>
+              </CardFooter>
+            </Card>
 
             {/* Service Card 3 */}
-            <div className="bg-cream-dark rounded-2xl p-8 hover:shadow-xl transition-shadow group">
-              <div className="w-14 h-14 bg-gold/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-gold/30 transition-colors">
-                <Package className="w-7 h-7 text-gold" />
-              </div>
-              <h3 className="text-xl font-semibold text-teal mb-3">Move-In/Move-Out</h3>
-              <p className="text-teal/70 mb-4">
-                Start fresh in your new home with everything unpacked, organized, and ready to live.
-              </p>
-              <p className="text-terracotta font-medium">$350 – $600 per home</p>
-            </div>
+            <Card className="bg-cream-dark border-0 hover:shadow-xl transition-shadow group">
+              <CardHeader>
+                <div className="w-14 h-14 bg-gold/20 rounded-2xl flex items-center justify-center mb-2 group-hover:bg-gold/30 transition-colors">
+                  <Package className="w-7 h-7 text-gold" />
+                </div>
+                <CardTitle className="text-xl text-teal">Move-In/Move-Out</CardTitle>
+                <CardDescription className="text-teal/70">
+                  Start fresh in your new home with everything unpacked, organized, and ready to live.
+                </CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <p className="text-terracotta font-medium">$350 – $600 per home</p>
+              </CardFooter>
+            </Card>
 
             {/* Service Card 4 */}
-            <div className="bg-cream-dark rounded-2xl p-8 hover:shadow-xl transition-shadow group">
-              <div className="w-14 h-14 bg-blue-muted/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-blue-muted/30 transition-colors">
-                <CalendarDays className="w-7 h-7 text-blue-muted" />
-              </div>
-              <h3 className="text-xl font-semibold text-teal mb-3">Seasonal Resets</h3>
-              <p className="text-teal/70 mb-4">
-                Refresh your space seasonally to maintain order and adapt to changing needs.
-              </p>
-              <p className="text-terracotta font-medium">$150 – $300 per session</p>
-            </div>
+            <Card className="bg-cream-dark border-0 hover:shadow-xl transition-shadow group">
+              <CardHeader>
+                <div className="w-14 h-14 bg-blue-muted/20 rounded-2xl flex items-center justify-center mb-2 group-hover:bg-blue-muted/30 transition-colors">
+                  <CalendarDays className="w-7 h-7 text-blue-muted" />
+                </div>
+                <CardTitle className="text-xl text-teal">Seasonal Resets</CardTitle>
+                <CardDescription className="text-teal/70">
+                  Refresh your space seasonally to maintain order and adapt to changing needs.
+                </CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <p className="text-terracotta font-medium">$150 – $300 per session</p>
+              </CardFooter>
+            </Card>
 
             {/* Service Card 5 */}
-            <div className="bg-cream-dark rounded-2xl p-8 hover:shadow-xl transition-shadow group">
-              <div className="w-14 h-14 bg-sage/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-sage/30 transition-colors">
-                <svg className="w-7 h-7 text-sage" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-teal mb-3">Virtual Organizing</h3>
-              <p className="text-teal/70 mb-4">
-                Remote guidance and coaching for DIY organizers who want expert direction.
-              </p>
-              <p className="text-terracotta font-medium">$75 – $100/hr</p>
-            </div>
+            <Card className="bg-cream-dark border-0 hover:shadow-xl transition-shadow group">
+              <CardHeader>
+                <div className="w-14 h-14 bg-sage/20 rounded-2xl flex items-center justify-center mb-2 group-hover:bg-sage/30 transition-colors">
+                  <Video className="w-7 h-7 text-sage" />
+                </div>
+                <CardTitle className="text-xl text-teal">Virtual Organizing</CardTitle>
+                <CardDescription className="text-teal/70">
+                  Remote guidance and coaching for DIY organizers who want expert direction.
+                </CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <p className="text-terracotta font-medium">$75 – $100/hr</p>
+              </CardFooter>
+            </Card>
 
             {/* Service Card 6 */}
-            <div className="bg-cream-dark rounded-2xl p-8 hover:shadow-xl transition-shadow group">
-              <div className="w-14 h-14 bg-burgundy/20 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-burgundy/30 transition-colors">
-                <svg className="w-7 h-7 text-burgundy" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-teal mb-3">Vacation Rental Setup</h3>
-              <p className="text-teal/70 mb-4">
-                Make your Airbnb or rental property guest-ready with thoughtful organization.
-              </p>
-              <p className="text-terracotta font-medium">$200 – $400 per property</p>
-            </div>
+            <Card className="bg-cream-dark border-0 hover:shadow-xl transition-shadow group">
+              <CardHeader>
+                <div className="w-14 h-14 bg-burgundy/20 rounded-2xl flex items-center justify-center mb-2 group-hover:bg-burgundy/30 transition-colors">
+                  <Building2 className="w-7 h-7 text-burgundy" />
+                </div>
+                <CardTitle className="text-xl text-teal">Vacation Rental Setup</CardTitle>
+                <CardDescription className="text-teal/70">
+                  Make your Airbnb or rental property guest-ready with thoughtful organization.
+                </CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <p className="text-terracotta font-medium">$200 – $400 per property</p>
+              </CardFooter>
+            </Card>
           </div>
         </div>
       </section>
@@ -262,85 +300,103 @@ export default function HomePage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-cream/10 backdrop-blur rounded-2xl p-8 border border-cream/20">
-              <h3 className="text-xl font-semibold text-cream mb-2">Mini Consultation</h3>
-              <p className="text-cream/70 mb-6">Perfect for getting started</p>
-              <div className="text-4xl font-semibold text-gold mb-6">1 Hour</div>
-              <ul className="space-y-3 text-cream/80 mb-8">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-sage-light" />
-                  Space assessment
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-sage-light" />
-                  Personalized action plan
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-sage-light" />
-                  Product recommendations
-                </li>
-              </ul>
-              <a href="#contact" className="block text-center bg-cream text-teal px-6 py-3 rounded-full font-medium hover:bg-cream/90 transition-colors">
-                Book Now
-              </a>
-            </div>
+            <Card className="bg-cream/10 backdrop-blur border-cream/20">
+              <CardHeader>
+                <CardTitle className="text-xl text-cream">Mini Consultation</CardTitle>
+                <CardDescription className="text-cream/70">Perfect for getting started</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-4xl font-semibold text-gold mb-6">1 Hour</div>
+                <ul className="space-y-3 text-cream/80">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-sage-light" />
+                    Space assessment
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-sage-light" />
+                    Personalized action plan
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-sage-light" />
+                    Product recommendations
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button variant="cream" rounded="full" className="w-full" asChild>
+                  <a href="#contact">Book Now</a>
+                </Button>
+              </CardFooter>
+            </Card>
 
-            <div className="bg-terracotta rounded-2xl p-8 relative">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gold text-teal px-4 py-1 rounded-full text-sm font-medium">
+            <Card className="bg-terracotta border-0 relative">
+              <Badge variant="gold" className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1">
                 Most Popular
-              </div>
-              <h3 className="text-xl font-semibold text-cream mb-2">Seasonal Reset</h3>
-              <p className="text-cream/70 mb-6">Quarterly refresh</p>
-              <div className="text-4xl font-semibold text-cream mb-6">4 Hours</div>
-              <ul className="space-y-3 text-cream/90 mb-8">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-gold" />
-                  Deep declutter session
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-gold" />
-                  System optimization
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-gold" />
-                  Label & style refresh
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-gold" />
-                  Maintenance tips
-                </li>
-              </ul>
-              <a href="#contact" className="block text-center bg-cream text-terracotta px-6 py-3 rounded-full font-medium hover:bg-cream/90 transition-colors">
-                Book Now
-              </a>
-            </div>
+              </Badge>
+              <CardHeader>
+                <CardTitle className="text-xl text-cream">Seasonal Reset</CardTitle>
+                <CardDescription className="text-cream/70">Quarterly refresh</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-4xl font-semibold text-cream mb-6">4 Hours</div>
+                <ul className="space-y-3 text-cream/90">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-gold" />
+                    Deep declutter session
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-gold" />
+                    System optimization
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-gold" />
+                    Label & style refresh
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-gold" />
+                    Maintenance tips
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button variant="cream-accent" rounded="full" className="w-full" asChild>
+                  <a href="#contact">Book Now</a>
+                </Button>
+              </CardFooter>
+            </Card>
 
-            <div className="bg-cream/10 backdrop-blur rounded-2xl p-8 border border-cream/20">
-              <h3 className="text-xl font-semibold text-cream mb-2">Full Home Refresh</h3>
-              <p className="text-cream/70 mb-6">Complete transformation</p>
-              <div className="text-4xl font-semibold text-gold mb-6">10 Hours</div>
-              <ul className="space-y-3 text-cream/80 mb-8">
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-sage-light" />
-                  Multiple room overhaul
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-sage-light" />
-                  Custom storage solutions
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-sage-light" />
-                  Styling & finishing
-                </li>
-                <li className="flex items-center gap-2">
-                  <CheckCircle2 className="w-5 h-5 text-sage-light" />
-                  Follow-up support
-                </li>
-              </ul>
-              <a href="#contact" className="block text-center bg-cream text-teal px-6 py-3 rounded-full font-medium hover:bg-cream/90 transition-colors">
-                Book Now
-              </a>
-            </div>
+            <Card className="bg-cream/10 backdrop-blur border-cream/20">
+              <CardHeader>
+                <CardTitle className="text-xl text-cream">Full Home Refresh</CardTitle>
+                <CardDescription className="text-cream/70">Complete transformation</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="text-4xl font-semibold text-gold mb-6">10 Hours</div>
+                <ul className="space-y-3 text-cream/80">
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-sage-light" />
+                    Multiple room overhaul
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-sage-light" />
+                    Custom storage solutions
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-sage-light" />
+                    Styling & finishing
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-sage-light" />
+                    Follow-up support
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter>
+                <Button variant="cream" rounded="full" className="w-full" asChild>
+                  <a href="#contact">Book Now</a>
+                </Button>
+              </CardFooter>
+            </Card>
           </div>
         </div>
       </section>
@@ -503,76 +559,78 @@ export default function HomePage() {
               </div>
 
               <div className="flex items-center gap-4 pt-4">
-                <a
-                  href="#"
-                  className="w-12 h-12 bg-teal text-cream rounded-full flex items-center justify-center hover:bg-teal/90 transition-colors"
-                >
-                  <Instagram className="w-5 h-5" />
-                </a>
+                <Button variant="default" size="icon-xl" rounded="full" asChild>
+                  <a href="#">
+                    <Instagram className="w-5 h-5" />
+                  </a>
+                </Button>
               </div>
             </div>
 
-            <div className="bg-cream-dark rounded-3xl p-8 lg:p-10">
-              <h3 className="text-2xl font-semibold text-teal mb-6">Book Your Consultation</h3>
-              <form className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-teal mb-2">
-                    Your Name
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-cream focus:outline-none focus:ring-2 focus:ring-sage text-teal"
-                    placeholder="Jane Doe"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-teal mb-2">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-cream focus:outline-none focus:ring-2 focus:ring-sage text-teal"
-                    placeholder="jane@example.com"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="service" className="block text-sm font-medium text-teal mb-2">
-                    Service Interest
-                  </label>
-                  <select
-                    id="service"
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-cream focus:outline-none focus:ring-2 focus:ring-sage text-teal"
-                  >
-                    <option>Home Organizing</option>
-                    <option>Full Space Overhaul</option>
-                    <option>Move-In/Move-Out</option>
-                    <option>Seasonal Reset</option>
-                    <option>Virtual Organizing</option>
-                    <option>Not Sure Yet</option>
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-teal mb-2">
-                    Tell Me About Your Space
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    className="w-full px-4 py-3 rounded-xl border border-border bg-cream focus:outline-none focus:ring-2 focus:ring-sage text-teal resize-none"
-                    placeholder="What areas need the most attention?"
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-terracotta text-cream py-4 rounded-full font-medium hover:bg-terracotta/90 transition-colors flex items-center justify-center gap-2"
-                >
-                  Send Message
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </form>
-            </div>
+            <Card className="bg-cream-dark border-0 rounded-3xl">
+              <CardHeader>
+                <CardTitle className="text-2xl text-teal">Book Your Consultation</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <form className="space-y-6">
+                  <div className="space-y-2">
+                    <Label htmlFor="name" className="text-teal">
+                      Your Name
+                    </Label>
+                    <Input
+                      type="text"
+                      id="name"
+                      placeholder="Jane Doe"
+                      className="rounded-xl bg-cream border-border text-teal h-12"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-teal">
+                      Email Address
+                    </Label>
+                    <Input
+                      type="email"
+                      id="email"
+                      placeholder="jane@example.com"
+                      className="rounded-xl bg-cream border-border text-teal h-12"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="service" className="text-teal">
+                      Service Interest
+                    </Label>
+                    <Select>
+                      <SelectTrigger className="w-full rounded-xl bg-cream border-border text-teal h-12">
+                        <SelectValue placeholder="Select a service" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="home-organizing">Home Organizing</SelectItem>
+                        <SelectItem value="full-space-overhaul">Full Space Overhaul</SelectItem>
+                        <SelectItem value="move-in-out">Move-In/Move-Out</SelectItem>
+                        <SelectItem value="seasonal-reset">Seasonal Reset</SelectItem>
+                        <SelectItem value="virtual-organizing">Virtual Organizing</SelectItem>
+                        <SelectItem value="not-sure">Not Sure Yet</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="message" className="text-teal">
+                      Tell Me About Your Space
+                    </Label>
+                    <Textarea
+                      id="message"
+                      rows={4}
+                      placeholder="What areas need the most attention?"
+                      className="rounded-xl bg-cream border-border text-teal resize-none"
+                    />
+                  </div>
+                  <Button variant="accent" size="xl" rounded="full" className="w-full">
+                    Send Message
+                    <ArrowRight className="w-5 h-5" />
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
@@ -604,5 +662,6 @@ export default function HomePage() {
         </div>
       </footer>
     </div>
+    </ComingSoonGate>
   );
 }
