@@ -2,7 +2,6 @@ import Image from "next/image";
 import {
   ArrowRight,
   ArrowDown,
-  Menu,
   Phone,
   Mail,
   MapPin,
@@ -40,20 +39,15 @@ export default function HomePage() {
           Skip to main content
         </a>
 
-        {/* Minimal Navigation - Zara style */}
-        <header className="fixed top-0 left-0 right-0 z-50 mix-blend-difference">
+        {/* Minimal Navigation */}
+        <header className="fixed top-0 left-0 right-0 z-50 bg-cream/80 backdrop-blur-sm">
           <nav className="px-6 md:px-12 py-6 flex items-center justify-between" aria-label="Main navigation">
-            <a href="#" className="text-white text-sm tracking-[0.3em] uppercase font-light" aria-label="House of Order - Home">
+            <a href="#" className="text-teal text-sm tracking-[0.3em] uppercase font-light" aria-label="House of Order - Home">
               House of Order
             </a>
-            <div className="flex items-center gap-8">
-              <a href="#contact" className="hidden md:block text-white text-sm tracking-[0.2em] uppercase font-light hover:opacity-60 transition-opacity">
-                Contact
-              </a>
-              <button className="text-white" aria-label="Open menu">
-                <Menu className="w-6 h-6" strokeWidth={1} />
-              </button>
-            </div>
+            <a href="#contact" className="text-teal text-sm tracking-[0.2em] uppercase font-light hover:opacity-60 transition-opacity">
+              Contact
+            </a>
           </nav>
         </header>
 
