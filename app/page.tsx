@@ -356,12 +356,14 @@ export default function HomePage() {
                 </address>
 
                 <a
-                  href="#"
+                  href="https://www.instagram.com/nicorganizes/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 text-cream/80 hover:text-cream transition-colors"
                   aria-label="Follow House of Order on Instagram"
                 >
                   <Instagram className="w-5 h-5" strokeWidth={1} />
-                  <span className="text-sm tracking-wide">@houseoforder</span>
+                  <span className="text-sm tracking-wide">@nicorganizes</span>
                 </a>
               </div>
 

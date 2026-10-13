@@ -94,6 +94,7 @@ const localBusinessJsonLd = {
     name: "Miami",
   },
   priceRange: "$$",
+  sameAs: ["https://www.instagram.com/nicorganizes/"],
 };
 
 export default function RootLayout({
