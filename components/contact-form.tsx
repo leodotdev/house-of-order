@@ -22,9 +22,7 @@ export const CONTACT_PHONE_TEL = "+13058156931";
 const SERVICES = [
   { value: "home-organizing", label: "Home Organizing" },
   { value: "full-space-overhaul", label: "Full Space Overhaul" },
-  { value: "move-in-out", label: "Move-In/Move-Out" },
   { value: "seasonal-reset", label: "Seasonal Reset" },
-  { value: "virtual-organizing", label: "Virtual Organizing" },
   { value: "not-sure", label: "Not Sure Yet" },
 ];
 

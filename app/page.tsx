@@ -75,16 +75,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Full Bleed Image - Pantry */}
-        <section className="relative h-[80vh]" aria-label="Organized pantry showcase">
-          <Image
-            src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1920&q=90"
-            alt="Meticulously organized kitchen pantry with glass containers and labeled jars"
-            fill
-            className="object-cover"
-          />
-        </section>
-
         {/* Services - Asymmetric Layout */}
         <section id="services" className="py-32 md:py-48 px-6 md:px-12 lg:px-20 bg-cream" aria-labelledby="services-heading">
           <div className="max-w-7xl mx-auto">
@@ -105,9 +95,9 @@ export default function HomePage() {
                       Home Organizing
                     </h3>
                     <p className="text-teal/70 leading-relaxed mb-4 max-w-lg">
-                      Closets, kitchens, bedrooms, garages, offices — every space deserves intention and order.
+                      Declutter and organize a single space in your home. Create functional, organized spaces that are easy to maintain.
                     </p>
-                    <p className="text-sm tracking-wide text-terracotta">From $90/hour</p>
+                    <p className="text-sm tracking-wide text-terracotta">$90/hour</p>
                   </div>
                 </article>
 
@@ -117,21 +107,9 @@ export default function HomePage() {
                       Full Space Overhaul
                     </h3>
                     <p className="text-teal/70 leading-relaxed mb-4 max-w-lg">
-                      Complete transformation of a single space — closet, pantry, playroom, or garage.
+                      A complete transformation for spaces that need a fresh start.
                     </p>
-                    <p className="text-sm tracking-wide text-terracotta">$250 – $450 per space</p>
-                  </div>
-                </article>
-
-                <article className="group">
-                  <div className="border-t border-border pt-8">
-                    <h3 className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] text-teal mb-4 group-hover:text-terracotta transition-colors">
-                      Move-In / Move-Out
-                    </h3>
-                    <p className="text-teal/70 leading-relaxed mb-4 max-w-lg">
-                      Start fresh in your new home with everything unpacked, organized, and ready to live.
-                    </p>
-                    <p className="text-sm tracking-wide text-terracotta">$350 – $600 per home</p>
+                    <p className="text-sm tracking-wide text-terracotta">Pricing varies based on the size of the space and the scope of the project.</p>
                   </div>
                 </article>
 
@@ -143,19 +121,7 @@ export default function HomePage() {
                     <p className="text-teal/70 leading-relaxed mb-4 max-w-lg">
                       Refresh your space seasonally to maintain order and adapt to changing needs.
                     </p>
-                    <p className="text-sm tracking-wide text-terracotta">$150 – $300 per session</p>
-                  </div>
-                </article>
-
-                <article className="group">
-                  <div className="border-t border-border pt-8">
-                    <h3 className="text-2xl md:text-3xl font-[family-name:var(--font-cormorant)] text-teal mb-4 group-hover:text-terracotta transition-colors">
-                      Virtual Organizing
-                    </h3>
-                    <p className="text-teal/70 leading-relaxed mb-4 max-w-lg">
-                      Remote guidance and coaching for DIY organizers who want expert direction.
-                    </p>
-                    <p className="text-sm tracking-wide text-terracotta">$75 – $100/hour</p>
+                    <p className="text-sm tracking-wide text-terracotta">$300 per session</p>
                   </div>
                 </article>
               </div>
@@ -186,18 +152,8 @@ export default function HomePage() {
         {/* About - Editorial Text + Image */}
         <section id="about" className="py-32 md:py-48 px-6 md:px-12 lg:px-20 bg-cream" aria-labelledby="about-heading">
           <div className="max-w-7xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="order-2 lg:order-1 relative">
-                <div className="aspect-[3/4] relative">
-                  <Image
-                    src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=90"
-                    alt="Nicole, professional home organizer"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-              </div>
-              <div className="order-1 lg:order-2 space-y-8">
+            <div className="max-w-3xl mx-auto">
+              <div className="space-y-8">
                 <p className="text-sm tracking-[0.3em] uppercase text-sage-dark">The Founder</p>
                 <h2 id="about-heading" className="text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-cormorant)] font-light text-teal">
                   Meet Nicole
@@ -332,12 +288,11 @@ export default function HomePage() {
                 <div>
                   <p className="text-sm tracking-[0.3em] uppercase text-sage-light mb-4">Get in Touch</p>
                   <h2 id="contact-heading" className="text-4xl md:text-5xl lg:text-6xl font-[family-name:var(--font-cormorant)] font-light text-cream leading-tight">
-                    Ready to Transform<br />Your Space?
+                    Let&apos;s Create a Space<br />That Works for You.
                   </h2>
                 </div>
                 <p className="text-cream/70 text-lg leading-relaxed max-w-md">
-                  Book a free 30-minute consultation and discover how we can help
-                  you create the home you deserve.
+                  Thoughtful organizing. Functional spaces. A fresh start.
                 </p>
 
                 <address className="space-y-6 not-italic text-cream/80">
