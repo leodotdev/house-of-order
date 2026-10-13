@@ -45,6 +45,12 @@ export async function POST(request: Request) {
     return Response.json({ error: "invalid_fields" }, { status: 400 });
   }
 
+  // Local development: `CONTACT_DRY_RUN=1` in .env.local skips the real send.
+  if (process.env.CONTACT_DRY_RUN === "1") {
+    console.log("[contact] dry run", { name, email, service });
+    return Response.json({ ok: true });
+  }
+
   const apiKey = getApiKey();
   if (!apiKey) {
     return Response.json({ error: "not_configured" }, { status: 503 });

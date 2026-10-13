@@ -123,3 +123,65 @@
 .animate-delay-200 { animation-delay: 200ms; }
 .animate-delay-300 { animation-delay: 300ms; }
 .animate-delay-400 { animation-delay: 400ms; }
+
+/* Contact form: submit → sending → sent */
+:root {
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.contact-fields {
+  transition: opacity 200ms var(--ease-out-strong);
+}
+.contact-fields:disabled {
+  opacity: 0.55;
+}
+
+.contact-form-leave {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 200ms var(--ease-out-strong), transform 200ms var(--ease-out-strong);
+}
+
+@keyframes contact-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.contact-rise-in {
+  animation: contact-rise-in 320ms var(--ease-out-strong) both;
+  animation-delay: calc(var(--i, 0) * 70ms);
+}
+
+.contact-check path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: contact-draw 420ms var(--ease-out-strong) 180ms forwards;
+}
+@keyframes contact-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-form-leave {
+    transform: none;
+  }
+  .contact-rise-in {
+    animation: contact-fade-in 200ms ease both;
+    animation-delay: 0ms;
+  }
+  .contact-check path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes contact-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
