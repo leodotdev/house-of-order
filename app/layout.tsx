@@ -88,6 +88,7 @@ const localBusinessJsonLd = {
     "Professional home organization and styling services in Miami. Curating Order. Creating Harmony.",
   url: "https://house-of-order.com",
   email: "nicole@house-of-order.com",
+  telephone: "+1-305-815-6931",
   areaServed: {
     "@type": "City",
     name: "Miami",

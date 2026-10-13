@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { ArrowRight, ArrowDown, Mail, MapPin, Instagram } from "lucide-react";
+import { ArrowRight, ArrowDown, Phone, Mail, MapPin, Instagram } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { ContactForm, CONTACT_EMAIL } from "@/components/contact-form";
+import { ContactForm, CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_TEL } from "@/components/contact-form";
 
 export default function HomePage() {
   return (
@@ -341,6 +341,10 @@ export default function HomePage() {
                 </p>
 
                 <address className="space-y-6 not-italic text-cream/80">
+                  <a href={`tel:${CONTACT_PHONE_TEL}`} className="flex items-center gap-4 hover:text-cream transition-colors">
+                    <Phone className="w-5 h-5" strokeWidth={1} aria-hidden="true" />
+                    <span>{CONTACT_PHONE}</span>
+                  </a>
                   <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-4 hover:text-cream transition-colors">
                     <Mail className="w-5 h-5" strokeWidth={1} aria-hidden="true" />
                     <span>{CONTACT_EMAIL}</span>
