@@ -80,6 +80,21 @@ export const metadata: Metadata = {
   },
 };
 
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "House of Order",
+  description:
+    "Professional home organization and styling services in Miami. Curating Order. Creating Harmony.",
+  url: "https://house-of-order.com",
+  email: "nicole@house-of-order.com",
+  areaServed: {
+    "@type": "City",
+    name: "Miami",
+  },
+  priceRange: "$$",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -89,6 +104,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${outfit.variable} ${cormorant.variable} antialiased`}>
         {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+        />
       </body>
     </html>
   );

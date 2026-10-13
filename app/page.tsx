@@ -1,30 +1,8 @@
 import Image from "next/image";
-import {
-  ArrowRight,
-  ArrowDown,
-  Phone,
-  Mail,
-  MapPin,
-  Instagram,
-} from "lucide-react";
+import { ArrowRight, ArrowDown, Mail, MapPin, Instagram } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import { ContactForm, CONTACT_EMAIL } from "@/components/contact-form";
 
 export default function HomePage() {
   return (
@@ -363,13 +341,9 @@ export default function HomePage() {
                 </p>
 
                 <address className="space-y-6 not-italic text-cream/80">
-                  <a href="tel:+13055550123" className="flex items-center gap-4 hover:text-cream transition-colors">
-                    <Phone className="w-5 h-5" strokeWidth={1} aria-hidden="true" />
-                    <span>(305) 555-0123</span>
-                  </a>
-                  <a href="mailto:hello@houseoforder.co" className="flex items-center gap-4 hover:text-cream transition-colors">
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="flex items-center gap-4 hover:text-cream transition-colors">
                     <Mail className="w-5 h-5" strokeWidth={1} aria-hidden="true" />
-                    <span>hello@houseoforder.co</span>
+                    <span>{CONTACT_EMAIL}</span>
                   </a>
                   <div className="flex items-center gap-4">
                     <MapPin className="w-5 h-5" strokeWidth={1} aria-hidden="true" />
@@ -387,74 +361,7 @@ export default function HomePage() {
                 </a>
               </div>
 
-              <Card className="bg-cream border-0">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-2xl font-[family-name:var(--font-cormorant)] font-light text-teal">
-                    Book a Consultation
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form className="space-y-6" action="#" method="POST">
-                    <div className="space-y-2">
-                      <Label htmlFor="name" className="text-teal text-sm tracking-wide">
-                        Name
-                      </Label>
-                      <Input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        className="bg-transparent border-0 border-b border-border rounded-none px-0 text-teal h-12 focus-visible:ring-0 focus-visible:border-teal"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email" className="text-teal text-sm tracking-wide">
-                        Email
-                      </Label>
-                      <Input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        className="bg-transparent border-0 border-b border-border rounded-none px-0 text-teal h-12 focus-visible:ring-0 focus-visible:border-teal"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="service" className="text-teal text-sm tracking-wide">
-                        Service Interest
-                      </Label>
-                      <Select name="service">
-                        <SelectTrigger id="service" className="bg-transparent border-0 border-b border-border rounded-none px-0 text-teal h-12 focus:ring-0">
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="home-organizing">Home Organizing</SelectItem>
-                          <SelectItem value="full-space-overhaul">Full Space Overhaul</SelectItem>
-                          <SelectItem value="move-in-out">Move-In/Move-Out</SelectItem>
-                          <SelectItem value="seasonal-reset">Seasonal Reset</SelectItem>
-                          <SelectItem value="virtual-organizing">Virtual Organizing</SelectItem>
-                          <SelectItem value="not-sure">Not Sure Yet</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message" className="text-teal text-sm tracking-wide">
-                        Tell us about your space
-                      </Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        rows={4}
-                        className="bg-transparent border-0 border-b border-border rounded-none px-0 text-teal resize-none focus-visible:ring-0 focus-visible:border-teal"
-                      />
-                    </div>
-                    <Button type="submit" variant="accent" size="lg" className="w-full mt-8">
-                      Send Message
-                      <ArrowRight className="w-4 h-4 ml-2" aria-hidden="true" />
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
+              <ContactForm />
             </div>
           </div>
         </section>
@@ -467,6 +374,9 @@ export default function HomePage() {
             <span className="text-sm tracking-[0.2em] uppercase text-cream/60 font-light">
               House of Order
             </span>
+            <a href={`mailto:${CONTACT_EMAIL}`} className="text-cream/60 text-sm hover:text-cream transition-colors">
+              {CONTACT_EMAIL}
+            </a>
             <p className="text-cream/40 text-sm">
               &copy; {new Date().getFullYear()} All rights reserved.
             </p>
